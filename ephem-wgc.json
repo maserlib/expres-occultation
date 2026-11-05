@@ -1,0 +1,210 @@
+{
+  "I00": {
+    "params": {
+      "spacecraft": "GLL",
+      "moon": "Io",
+      "start_time": "1995-12-07T16:30:00",
+      "end_time": "1995-12-07T18:30:00"
+    },
+    "GLL": "ephem/WGC_StateVector_20190821173737.csv",
+    "Io": "ephem/WGC_StateVector_Jupiter_Io_19951207.csv"
+  },
+  "G01": {
+    "params": {
+      "spacecraft": "GLL",
+      "moon": "Ganymede",
+      "start_time": "1996-06-27T05:30:00",
+      "end_time": "1996-06-27T07:00:00"
+    },
+    "GLL": "ephem/WGC_StateVector_20190605075116.csv",
+    "Ganymede": "ephem/WGC_StateVector_20190605074525.csv"
+  },
+  "G02": {
+    "params": {
+      "spacecraft": "GLL",
+      "moon": "Ganymede",
+      "start_time": "1996-09-06T17:00:00",
+      "end_time": "1996-09-06T20:00:00"
+    },
+    "GLL": "ephem/WGC_StateVector_20190821170530.csv",
+    "Ganymede": "ephem/WGC_StateVector_20190821164151.csv"
+  },
+  "C03": {
+    "params": {
+      "spacecraft": "GLL",
+      "moon": "Callisto",
+      "start_time": "1996-11-04T12:00:00",
+      "end_time": "1996-11-04T16:00:00"
+    },
+    "GLL": "ephem/WGC_StateVector_20190821220022.csv",
+    "Callisto": "ephem/WGC_StateVector_20190821220417.csv"
+  },
+  "E04": {
+    "params": {
+      "spacecraft": "GLL",
+      "moon": "Europa",
+      "start_time": "1996-12-19T05:00:00",
+      "end_time": "1996-12-19T08:00:00"
+    },
+    "GLL": "ephem/WGC_StateVector_20190821215903.csv",
+    "Europa": "ephem/WGC_StateVector_20190821215744.csv"
+  },
+  "E06": {
+    "params": {
+      "spacecraft": "GLL",
+      "moon": "Europa",
+      "start_time": "1997-02-20T15:00:00",
+      "end_time": "1997-02-20T18:00:00"
+    },
+    "GLL": "ephem/WGC_StateVector_20190821220715.csv",
+    "Europa": "ephem/WGC_StateVector_20190821220636.csv"
+  },
+  "G07": {
+    "params": {
+      "spacecraft": "GLL",
+      "moon": "Ganymede",
+      "start_time": "1997-04-05T05:00:00",
+      "end_time": "1997-04-05T09:00:00"
+    },
+    "GLL": "ephem/WGC_StateVector_20190821171521.csv",
+    "Ganymede": "ephem/WGC_StateVector_20190821164516.csv"
+  },
+  "G08": {
+    "params": {
+      "spacecraft": "GLL",
+      "moon": "Ganymede",
+      "start_time": "1997-05-07T14:00:00",
+      "end_time": "1997-05-07T18:00:00"
+    },
+    "GLL": "ephem/WGC_StateVector_20190821171711.csv",
+    "Ganymede": "ephem/WGC_StateVector_20190821164750.csv"
+  },
+  "C09": {
+    "params": {
+      "spacecraft": "GLL",
+      "moon": "Callisto",
+      "start_time": "1997-06-25T12:00:00",
+      "end_time": "1997-06-25T16:00:00"
+    },
+    "GLL": "ephem/WGC_StateVector_20190821220847.csv",
+    "Callisto": "ephem/WGC_StateVector_20190821221015.csv"
+  },
+  "C10": {
+    "params": {
+      "spacecraft": "GLL",
+      "moon": "Callisto",
+      "start_time": "1997-09-16T22:00:00",
+      "end_time": "1997-09-17T02:00:00"
+    },
+    "GLL": "ephem/WGC_StateVector_20190821221249.csv",
+    "Callisto": "ephem/WGC_StateVector_20190821221210.csv"
+  },
+  "E11": {
+    "GLL": "ephem/WGC_StateVector_20190821221810.csv",
+    "Europa": "ephem/WGC_StateVector_20190821221858.csv"
+  },
+  "E12": {
+    "GLL": "ephem/WGC_StateVector_20190821222243.csv",
+    "Europa": "ephem/WGC_StateVector_20190821222138.csv"
+  },
+  "E14": {
+    "GLL": "ephem/WGC_StateVector_20190821222727.csv",
+    "Europa": "ephem/WGC_StateVector_20190821222926.csv"
+  },
+  "E15": {
+    "GLL": null,
+    "Europa": "ephem/WGC_StateVector_20190821223247.csv"
+  },
+  "E19": {
+    "GLL": "ephem/WGC_StateVector_20190821223736.csv",
+    "Europa": "ephem/WGC_StateVector_20190821223831.csv"
+  },
+  "I24": {
+    "GLL": "ephem/WGC_StateVector_20191105151539.csv",
+    "Io": "ephem/WGC_StateVector_20191105151803.csv"
+  },
+  "E26": {
+    "GLL": "ephem/WGC_StateVector_20190821224019.csv",
+    "Europa": "ephem/WGC_StateVector_20190821223927.csv"
+  },
+  "G28": {
+    "GLL": "ephem/WGC_StateVector_20190821171847.csv",
+    "Ganymede": "ephem/WGC_StateVector_20190821165026.csv"
+  },
+  "G29": {
+    "GLL": "ephem/WGC_StateVector_20190821172118.csv",
+    "Ganymede": "ephem/WGC_StateVector_20190821165235.csv"
+  },
+  "C30": {
+    "GLL": "ephem/WGC_StateVector_20190821224159.csv",
+    "Callisto": "ephem/WGC_StateVector_20190821224240.csv"
+  },
+  "06E01": {
+    "JUICE": "ephem/WGC_StateVector_20191105161248.csv",
+    "Europa": "ephem/WGC_StateVector_20191105161707.csv"
+  },
+  "07E02": {
+    "JUICE": "ephem/WGC_StateVector_20191105173234.csv",
+    "Europa": "ephem/WGC_StateVector_20191105173133.csv"
+  },
+  "01G01": {
+    "JUICE": "ephem/WGC_StateVector_20191105173402.csv",
+    "Ganymede": "ephem/WGC_StateVector_20191105173450.csv"
+  },
+  "02G02": {
+    "JUICE": "ephem/WGC_StateVector_20191105173635.csv",
+    "Ganymede": "ephem/WGC_StateVector_20191105173550.csv"
+  },
+  "03G03": {
+    "JUICE": "ephem/WGC_StateVector_20191105173727.csv",
+    "Ganymede": "ephem/WGC_StateVector_20191105173806.csv"
+  },
+  "04G04": {
+    "JUICE": "ephem/WGC_StateVector_20191105173937.csv",
+    "Ganymede": "ephem/WGC_StateVector_20191105173856.csv"
+  },
+  "05G05": {
+    "JUICE": "ephem/WGC_StateVector_20191211004633.csv",
+    "Ganymede": "ephem/WGC_StateVector_20191211004256.csv"
+  },
+  "20G08": {
+    "JUICE": "ephem/WGC_StateVector_20191105174237.csv",
+    "Ganymede": "ephem/WGC_StateVector_20191105174156.csv"
+  },
+  "21G09": {
+    "JUICE": "ephem/WGC_StateVector_20191105174327.csv",
+    "Ganymede": "ephem/WGC_StateVector_20191105174411.csv"
+  },
+  "26G12": {
+    "JUICE": "ephem/WGC_StateVector_20191105174542.csv",
+    "Ganymede": "ephem/WGC_StateVector_20191105174456.csv"
+  },
+  "28G14": {
+    "JUICE": "ephem/WGC_StateVector_20191211011833.csv",
+    "Ganymede": "ephem/WGC_StateVector_20191211011932.csv"
+  },
+  "PJ34G01": {
+    "Juno": "ephem/WGC_StateVector_Juno_SC_2021-06-07T155000_20210607T175000.csv",
+    "Ganymede": "ephem/WGC_StateVector_Ganymede_20210607T1550-20210607T1750.csv"
+  },
+  "PJ45E03": {
+    "Juno": "ephem/WGC_StateVector_Juno_SC_20220929T083555_20220929T103555.csv",
+    "Europa": "ephem/WGC_StateVector_Europa_20220929.csv"
+  },
+  "PJ57I07": {
+    "Juno": "ephem/WGC_StateVector_Juno_SC_20231230T073624_20231230T093624.csv",
+    "Io": "ephem/WGC_StateVector_Io_20231230.csv"
+  },
+  "PJ58I08": {
+    "Juno": "ephem/WGC_StateVector_Juno_SC_20240203T164908_20240203T184908.csv",
+    "Io": "ephem/WGC_StateVector_Io_20240203.csv"
+  },
+  "T77": {
+    "Cassini": "ephem/T77_cassini_WGC_StateVector_20251027123207.csv",
+    "Titan": "ephem/T77_titan_WGC_StateVector_20251028164301.csv"
+  },
+  "T119": {
+    "Cassini": "ephem/T119_cassini_WGC_StateVector_20260421151244.csv",
+    "Titan": "ephem/T119_titan_WGC_StateVector_20260423034247.csv"
+  }
+}
