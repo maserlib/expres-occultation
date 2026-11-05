@@ -1,0 +1,112 @@
+{
+  "missions": {
+    "juno": {
+      "canonical_name": "Juno",
+      "center": "Jupiter",
+      "body_frame": "-61",
+      "fov": {
+        "pov": 40.0,
+        "top": 60.0
+      },
+      "spice_kernels": [
+        "wgc/mk/ground_stations_v0013.tm",
+        "wgc/mk/solar_system_v0037.tm",
+        "wgc/mk/latest_lsk_v0004.tm",
+        "Juno/kernels/spk/spk_pre_201231_210611_210225_jm0331.bsp",
+        "Juno/kernels/sclk/JNO_SCLKSCET.00111.tsc",
+        "Juno/kernels/ck/juno_sc_prl_210319_210414_jm0322a_v01.bc",
+        "Juno/kernels/fk/juno_v12.tf"
+      ]
+    },
+    "cassini": {
+      "canonical_name": "Cassini",
+      "center": "Saturn",
+      "body_frame": "-82",
+      "fov": {
+        "pov": 20.0,
+        "top": 40.0
+      },
+      "spice_kernel_anchor": "CASSINI",
+      "spice_catalog_pattern": "CASSINI/kernels/extras/mk_json_for_cosmo/spice_Cassini_{year}.json"
+    },
+    "gll": {
+      "aliases": ["galileo"],
+      "canonical_name": "GLL",
+      "center": "Jupiter",
+      "body_frame": "-GLL",
+      "fov": {
+        "pov": 40.0,
+        "top": 60.0
+      },
+      "spice_kernels": [
+        "wgc/mk/ground_stations_v0007.tm",
+        "wgc/mk/solar_system_v0027.tm",
+        "wgc/mk/latest_lsk_v0004.tm",
+        "GLL/kernels/spk/gll_951120_021126_raj2007.bsp",
+        "GLL/kernels/sclk/mk00062a.tsc",
+        "GLL/kernels/ck/gll_plt_rec_1995_mav_v00.bc",
+        "GLL/kernels/fk/gll_v0.tf"
+      ]
+    },
+    "juice": {
+      "canonical_name": "JUICE",
+      "center": "Jupiter",
+      "body_frame": "-28",
+      "fov": {
+        "pov": 40.0,
+        "top": 60.0
+      },
+      "spice_kernels": [
+        "JUICE/kernels/ck/juice_sc_crema_5_2_default_v01.bc",
+        "JUICE/kernels/ck/juice_sc_crema_5_2_comms_v04.bc",
+        "JUICE/kernels/ck/juice_sc_crema_5_2_conjctn_v01.bc",
+        "JUICE/kernels/ck/juice_sc_crema_5_2_flybys_v01.bc",
+        "JUICE/kernels/ck/juice_lpbooms_f160326_v01.bc",
+        "JUICE/kernels/ck/juice_magboom_f160326_v04.bc",
+        "JUICE/kernels/ck/juice_majis_scan_zero_v02.bc",
+        "JUICE/kernels/ck/juice_swi_scan_zero_v02.bc",
+        "JUICE/kernels/ck/juice_sa_crema_5_2_default_v01.bc",
+        "JUICE/kernels/ck/juice_mga_crema_5_2_default_v01.bc",
+        "JUICE/kernels/fk/juice_v46.tf",
+        "JUICE/kernels/fk/juice_sci_v21.tf",
+        "JUICE/kernels/fk/juice_ops_v13.tf",
+        "JUICE/kernels/fk/juice_dsk_surfaces_v11.tf",
+        "JUICE/kernels/fk/juice_roi_v02.tf",
+        "JUICE/kernels/fk/juice_events_crema_5_2_v02.tf",
+        "JUICE/kernels/fk/juice_rime_target_crema_5_2_v01.tf",
+        "JUICE/kernels/fk/juice_stations_topo_v02.tf",
+        "JUICE/kernels/fk/rssd0002.tf",
+        "JUICE/kernels/fk/earth_topo_201023.tf",
+        "JUICE/kernels/fk/estrack_v07.tf",
+        "JUICE/kernels/lsk/naif0012.tls",
+        "JUICE/kernels/pck/pck00011.tpc",
+        "JUICE/kernels/pck/de-403-masses.tpc",
+        "JUICE/kernels/pck/gm_de431.tpc",
+        "JUICE/kernels/pck/gm_inpop19a_v01.tpc",
+        "JUICE/kernels/pck/gm_noe2023_v01.tpc",
+        "JUICE/kernels/pck/inpop19a_moon_pa_v01.bpc",
+        "JUICE/kernels/pck/earth_070425_370426_predict.bpc",
+        "JUICE/kernels/pck/juice_jup015.tpc",
+        "JUICE/kernels/pck/juice_roi_v01.tpc",
+        "JUICE/kernels/sclk/juice_fict_160326_v02.tsc",
+        "JUICE/kernels/spk/juice_sci_v04.bsp",
+        "JUICE/kernels/spk/juice_struct_v22.bsp",
+        "JUICE/kernels/spk/juice_struct_internal_v01.bsp",
+        "JUICE/kernels/spk/juice_cog_v00.bsp",
+        "JUICE/kernels/spk/juice_roi_v02.bsp",
+        "JUICE/kernels/spk/mar085_20200101_20400101.bsp",
+        "JUICE/kernels/spk/earthstns_fx_201023.bsp",
+        "JUICE/kernels/spk/estrack_v07.bsp",
+        "JUICE/kernels/spk/juice_earthstns_v02.bsp",
+        "JUICE/kernels/spk/juice_cruise_minor_bodies_v03.bsp",
+        "JUICE/kernels/spk/jup365_19900101_20500101.bsp",
+        "JUICE/kernels/spk/jup347_19900101_20500101.bsp",
+        "JUICE/kernels/spk/jup348_19900101_20500101.bsp",
+        "JUICE/kernels/spk/jup349_19900101_20500101.bsp",
+        "JUICE/kernels/spk/de432s.bsp",
+        "JUICE/kernels/spk/noe-5-2023_20200101_20500101.bsp",
+        "JUICE/kernels/spk/juice_crema_5_2_v01.bsp"
+      ]
+    }
+  }
+}
