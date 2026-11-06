@@ -698,23 +698,8 @@ def get_flyby_table():
 
 flyby_table = get_flyby_table()
 
-# Function to load GLL/PWS data from Das2 service at UIowa
-
-def load_data_from_das2(flyby_id):
-    import das2 
-    row_id = flyby_table.loc_indices[flyby_id]
-    
-    d2src = das2.get_source('site:/uiowa/galileo/pws/survey_electric/das2')
-#    d2src = das2.get_source('tag:das2.org,2012:site:/uiowa/galileo/pws/survey_electric')
-    print(d2src)
-    d2dataset = d2src.get({'time': (flyby_params[flyby_id]['start_time'].isoformat(), 
-                                    flyby_params[flyby_id]['end_time'].isoformat(), 4.0)})[0] 
-    
-    d2a_t = d2dataset['time']['center'].array
-    d2a_f = d2dataset['frequency']['center'].array
-    d2a_sp = d2dataset['electric']['center'].array
-    return d2a_t, d2a_f, d2a_sp
-
+# Function to load GLL/PWS data from MASER
+# ### will be added soon ### #
 
 # Function to display the the modelled occultations (with observed data for GLL)
 def full_plots(flyby_id, expres_file=None, debug=False,radius_occultation=1.,savefig=False, figsize = (10, 7), option = 2, frequency_to_look_at = 10):
