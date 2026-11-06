@@ -49,6 +49,15 @@ moon_radius = {
     'Encelade': 252 * u('km')
 }
 
+planet_radius = {
+    'Io': 71492 * u('km'),
+    'Europa': 71492 * u('km'),
+    'Ganymede': 71492 * u('km'),
+    'Callisto': 71492 * u('km'),
+    'Titan': 60268 * u('km'),
+    'Encelade': 60268 * u('km')
+}
+
 
 
 files = {
@@ -365,14 +374,14 @@ class Flyby(object):
 
         ax.plot(
             self.moon.ephem.data['datetime'], 
-            numpy.sqrt(numpy.sum(self.xyz_spacecraft_to_moon()**2, axis=1))*71492/moon_radius[flyby_params[self.flyby_name]['moon']])
+            numpy.sqrt(numpy.sum(self.xyz_spacecraft_to_moon()**2, axis=1))*planet_radius[flyby_params[self.flyby_name]['moon']]/moon_radius[flyby_params[self.flyby_name]['moon']])
         ax.set_xlabel("Time of {}".format(self.moon.ephem.data['datetime'][0].date()))
         ax.set_ylabel("Distance in Moon Radius")
         ax.set_title("SC to Moon Distance")
         plt.show()
         
         if self._debug:
-            print(numpy.min(numpy.sqrt(numpy.sum(self.xyz_spacecraft_to_moon()**2, axis=1))*71492/2634))
+            print(numpy.min(numpy.sqrt(numpy.sum(self.xyz_spacecraft_to_moon()**2, axis=1))*planet_radius[flyby_params[self.flyby_name]['moon']]/moon_radius[flyby_params[self.flyby_name]['moon']]))
 
     def xyz_spacecraft_to_source(self):
 
@@ -418,7 +427,7 @@ class Flyby(object):
         ax.set_xlabel("Time of {}".format(self.source.Time[0].date()))
         ax.set_ylabel("Distance in Moon Radius")
         ax.set_title("SC to Radio Sources Distance (@{:5.2f} MHz)".format(self.source.Freq[cur_f]))
-        ax.set_ylim((0,20))
+        #ax.set_ylim((0,20))
         plt.show()
 
     def _compute_intercept(self, option=2):
@@ -522,10 +531,10 @@ class Flyby(object):
             label_SMS = 'Source-moon-spacecraft' if cur_s == 0 else None
             label_SSM = 'Source-spacecraft-moon' if cur_s == 0 else None
             if option == 1:
-                ax.plot(self.source.Time,intercept[:,cur_f,cur_s]*71492/moon_radius[flyby_params[self.flyby_name]['moon']], color = "blue")
+                ax.plot(self.source.Time,intercept[:,cur_f,cur_s]*planet_radius[flyby_params[self.flyby_name]['moon']]/moon_radius[flyby_params[self.flyby_name]['moon']], color = "blue")
             if option == 2:
-                ax.plot(self.source.Time,intercept[:,cur_f,cur_s]*71492/moon_radius[flyby_params[self.flyby_name]['moon']], color = "blue", label=label_SMS)
-                ax.plot(self.source.Time,intercept_front_mask[:,cur_f,cur_s]*71492/moon_radius[flyby_params[self.flyby_name]['moon']], color = "grey", label=label_SSM)
+                ax.plot(self.source.Time,intercept[:,cur_f,cur_s]*planet_radius[flyby_params[self.flyby_name]['moon']]/moon_radius[flyby_params[self.flyby_name]['moon']], color = "blue", label=label_SMS)
+                ax.plot(self.source.Time,intercept_front_mask[:,cur_f,cur_s]*planet_radius[flyby_params[self.flyby_name]['moon']]/moon_radius[flyby_params[self.flyby_name]['moon']], color = "grey", label=label_SSM)
                 
         ax.legend()
         ax.plot([self.source.Time[0], self.source.Time[-1]], [radius_occultation, radius_occultation], '--')
@@ -724,19 +733,25 @@ def full_plots(flyby_id, expres_file=None, debug=False,radius_occultation=1.,sav
     # find current flyby info
     cur_flyby = flyby_table[flyby_table.loc_indices[flyby_id]]
  
-    # Load and display observed data if GLL
     if cur_flyby['Spacecraft'] == 'GLL':
+        ylim = (1e5,5.7e6)
+    else:
+        ylim = (20e3,45e6)
+    
+    xlim = (cur_flyby['Start Time'], cur_flyby['End Time'])
+    # Load and display observed data if GLL
+    if cur_flyby['Spacecraft'] == 'GLL_data':
         d2a_t, d2a_f, d2a_sp = load_data_from_das2(flyby_id)
-        import matplotlib.colors as colors 
 
         print(numpy.min(d2a_sp))
         print(numpy.max(d2a_sp))
 
         plt.figure(figsize=(20, 13))
-        scaleZ = colors.LogNorm(vmin=numpy.min(d2a_sp), vmax=numpy.max(d2a_sp)) 
-        plt.pcolormesh(d2a_t, d2a_f, d2a_sp, cmap='jet', vmin=1e-16, vmax=1e-12, norm=scaleZ) 
+        scaleZ = mcolors.LogNorm(vmin=numpy.min(d2a_sp), vmax= numpy.max(d2a_sp))
+        plt.pcolormesh(d2a_t, d2a_f, d2a_sp, cmap='jet', norm=scaleZ)
+        cbar = plt.colorbar()
         plt.yscale("log")
-        plt.ylim((1e5,5.7e6))
+        plt.ylim(ylim)
         plt.xlabel('Time')
         plt.ylabel('Frequency (Hz)')
         plt.show()
@@ -769,7 +784,7 @@ def full_plots(flyby_id, expres_file=None, debug=False,radius_occultation=1.,sav
         
     nt, nf, ns = f.intercept.shape
     print(nt*nf)
-    print(numpy.any((f.intercept*71492/1821.6 < 1) & (f.source_class == 'A'), axis=2).shape)
+    print(numpy.any((f.intercept*planet_radius[flyby_params[flyby_id]['moon']]/moon_radius[flyby_params[flyby_id]['moon']]< 1) & (f.source_class == 'A'), axis=2).shape)
 
     occult_radius = radius_occultation  # change here if you want to have occultation including a larger object (set to 1.1 for 10% larger)    
     print(f'The occultation radius is set to {occult_radius} (1 = no atmosphere)')
@@ -786,7 +801,7 @@ def full_plots(flyby_id, expres_file=None, debug=False,radius_occultation=1.,sav
         # create a masked array of ones (with (nt, nf) dimensions) for the current class (all sources)
         src_all[cur_class] = numpy.ma.masked_array(numpy.ones((nt, nf)), cur_class_mask)
         # create a mask for intercepted sources of current class
-        cur_intercept_mask = numpy.any((f.intercept*71492/cur_moon_radius < occult_radius) & (f.source_class == cur_class), axis=2)
+        cur_intercept_mask = numpy.any((f.intercept*planet_radius[flyby_params[flyby_id]['moon']]/moon_radius[flyby_params[flyby_id]['moon']] < occult_radius) & (f.source_class == cur_class), axis=2)
         # joining the inverted intercepted sources and inverted current source class masks
         cur_occult_mask = numpy.logical_not(cur_intercept_mask) & numpy.logical_not(cur_class_mask)
         # create a masked array of ones (with (nt, nf) dimensions) for visible sources fo the current class
@@ -839,6 +854,7 @@ def full_plots(flyby_id, expres_file=None, debug=False,radius_occultation=1.,sav
         plt.xlabel("Time of {}".format(f.source.Time[0].strftime("%d %B %Y")),fontsize=14)
         plt.ylabel('Frequency (Hz)',fontsize=14)
         plt.title('{} sources'.format(cur_class),fontsize=16)
+        plt.ylim(ylim)
     
         
         plt.gcf().axes[0].xaxis.set_major_formatter(myFmt)
@@ -863,7 +879,7 @@ def full_plots(flyby_id, expres_file=None, debug=False,radius_occultation=1.,sav
                              cmap=cmap_occultation, norm=norm)
         plt.yscale("log")
 
-    plt.ylim(1e5, 5.6e6)
+    plt.ylim(ylim)
     plt.xlabel("Time of {}".format(f.source.Time[0].strftime("%d %B %Y")),fontsize=14)
     plt.ylabel('Frequency (Hz)',fontsize=14)
     plt.title('All sources',fontsize=16)
@@ -886,13 +902,13 @@ def full_plots(flyby_id, expres_file=None, debug=False,radius_occultation=1.,sav
     plt.figure(figsize=figsize)
     
     # prepare the final plot 
-    if cur_flyby['Spacecraft'] == 'GLL':
-        plt.pcolormesh(d2a_t, d2a_f, d2a_sp, cmap='jet', vmin=1e-16, vmax=1e-12, norm=scaleZ)
-        xlim = (d2a_t[0][0], d2a_t[-1][0])
-        ylim = (1e5,5.7e6)
-    else:
-        xlim = (cur_flyby['Start Time'], cur_flyby['End Time'])
-        ylim = (80e3,45e6)
+    #if cur_flyby['Spacecraft'] == 'GLL_data':
+    #    plt.pcolormesh(d2a_t, d2a_f, d2a_sp, cmap='jet', norm=scaleZ) #, vmin=1e-16, vmax=1e-12
+    #    xlim = (d2a_t[0][0], d2a_t[-1][0])
+    #    ylim = (1e5,5.7e6)
+    #else:
+    #    xlim = (cur_flyby['Start Time'], cur_flyby['End Time'])
+    #    ylim = (80e3,45e6)
    
     # defining colors for each source class
     class_color = {'A': '#F0F0F0', 'B': '#C0C0C0', 'C': '#909090', 'D': '#606060'}
