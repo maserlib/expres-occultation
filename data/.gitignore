@@ -1,0 +1,5 @@
+*
+!.gitignore
+!/expres-simulations/
+!/expres-simulations/C09/
+!/expres-simulations/C09/expres_gll_jupiter_0d-30r_jrm09_lossc-wid1deg_5kev_19970625_v11.cdf
