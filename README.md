@@ -21,7 +21,7 @@ The code was developped with Python 3.9
 ### Required packages
 The code was developped with the following version of python packages:
 
-numpy==1.26.4
-astropy==6.0.1
-spacepy==0.7.0
-ipykernel
+- numpy==1.26.4
+- astropy==6.0.1
+- spacepy==0.7.0
+- ipykernel
