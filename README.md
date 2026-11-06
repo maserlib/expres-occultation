@@ -17,7 +17,7 @@ In this tutorial, all required files are already downloaded and stored, and you 
 
 ## Requirements
 ### Python version
-The code was developper with Python 3.9
+The code was developped with Python 3.9
 ### Required packages
 The code was developped with the following version of python packages:
 
