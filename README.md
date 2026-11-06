@@ -14,3 +14,11 @@ We have create a set of Tutorial to guide you through the possibilities offered 
 In this tutorial, all required files are already downloaded and stored, and you have nothing else to do than run the tutorial
 - 
 
+## Requirements
+### Python version
+Python 3.10
+### Required packages
+numpy==1.26.4
+astropy==6.0.1
+spacepy==0.7.0
+ipykernel
