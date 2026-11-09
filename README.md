@@ -25,3 +25,4 @@ The code was developped with the following version of python packages:
 - astropy==6.0.1
 - spacepy==0.7.0
 - ipykernel
+- matplotlib==3.7.5 
