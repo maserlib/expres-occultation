@@ -1,5 +1,5 @@
 {
-"test": {
+"_example": {
     "spacecraft": "<Spacecraft_Name>",
     "moon": "<Moon_Name>",
     "start_time": "<YYYY-MM-DDTHH:mm:ss>",

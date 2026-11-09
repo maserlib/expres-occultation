@@ -1,5 +1,5 @@
 {
-  "test": {
+  "_example": {
     "<Spacecraft_Name>": "ephem/<Ephemeris_File_for_Spacecraft>.csv",
     "<Moon_Name>": "ephem/<Ephemeris_File_for_moon>.csv"
   },

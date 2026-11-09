@@ -27,6 +27,8 @@ with open("flybys_list.json", "r") as f:
 
 flyby_params = {}
 for key, val in flyby_params_raw.items():
+    if key.startswith("_"):
+        continue
     flyby_params[key] = {
         "spacecraft": val["spacecraft"],
         "moon": val["moon"],
@@ -92,7 +94,7 @@ def load_ephem_wgc(file='ephem-wgc.json'):
     import json
     with open(file) as json_file:
         data = json.load(json_file)
-    return data
+    return {key: value for key, value in data.items() if not key.startswith('_')}
 
 
 # NB for E15: Error in WGC: 
