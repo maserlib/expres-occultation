@@ -83,7 +83,7 @@ def select_frequency_indices(frequencies, mode, requested_frequency=None, count=
     raise ValueError("Choose 'all', 'nearest', or 'sample'.")
 
 
-def build_expres_item(start_time, end_time, source_xyz, distance_scale, center, frequency_indices=None):
+def build_expres_item(start_time, end_time, source_xyz, distance_scale, center, frequency_indices=None, pointSourceSize=10000):
     """Build the Cosmographia items for one ExPRES time step."""
     if frequency_indices is None:
         selected_xyz = source_xyz
@@ -111,7 +111,7 @@ def build_expres_item(start_time, end_time, source_xyz, distance_scale, center, 
             "center": center,
             "startTime": start_time.isoformat(),
             "endTime": end_time.isoformat(),
-            "geometry": {"type": "Globe", "radii": [10000, 10000, 10000]},
+            "geometry": {"type": "Globe", "radii": [pointSourceSize, pointSourceSize, pointSourceSize]},
             "label": {"color": "e60909", "fadeSize": 1000000, "showText": "0"},
             "trajectory": {
                 "type": "FixedPoint",
@@ -122,7 +122,7 @@ def build_expres_item(start_time, end_time, source_xyz, distance_scale, center, 
     ]
 
 
-def build_expres_catalog(flyby_name, times, source_positions, dt, mission_config, distance_scale, frequency_indices=None):
+def build_expres_catalog(flyby_name, times, source_positions, dt, mission_config, distance_scale, frequency_indices=None, pointSourceSize=10000):
     """Build a full ExPRES catalog from time-indexed source positions."""
     catalog = {
         "version": "1.0",
@@ -138,6 +138,7 @@ def build_expres_catalog(flyby_name, times, source_positions, dt, mission_config
                 distance_scale,
                 mission_config["center"],
                 frequency_indices,
+                pointSourceSize
             )
         )
     return catalog
