@@ -39,12 +39,9 @@
         "top": 60.0
       },
       "spice_kernels": [
-        "wgc/mk/ground_stations_v0007.tm",
-        "wgc/mk/solar_system_v0027.tm",
-        "wgc/mk/latest_lsk_v0004.tm",
         "GLL/kernels/spk/gll_951120_021126_raj2007.bsp",
         "GLL/kernels/sclk/mk00062a.tsc",
-        "GLL/kernels/ck/gll_plt_rec_1995_mav_v00.bc",
+        "GLL/kernels/ck/gll_plt_rec_1997_mav_v00.bc",
         "GLL/kernels/fk/gll_v0.tf"
       ]
     },
