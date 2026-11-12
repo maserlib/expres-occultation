@@ -104,12 +104,15 @@ def build_expres_item(start_time, end_time, source_xyz, distance_scale, center, 
     return [
         {
             "class": "other",
+            "name": "",
             "name": f"{start_time} - {index}",
-            "bodyFrame": {"type": "Spice", "name": f"IAU_{center.upper()}"},
+            #"name": f"{start_time} - {index} - ExPRES source",
+            "trajectoryFrame": {"type": "Spice", "name": f"IAU_{center.upper()}"},
             "center": center,
             "startTime": start_time.isoformat(),
             "endTime": end_time.isoformat(),
             "geometry": {"type": "Globe", "radii": [10000, 10000, 10000]},
+            "label": {"color": "e60909", "fadeSize": 1000000, "showText": "0"},
             "trajectory": {
                 "type": "FixedPoint",
                 "position": [x[index] * distance_scale, y[index] * distance_scale, z[index] * distance_scale],
